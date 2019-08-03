@@ -10,11 +10,13 @@ const app = express()
 
 const port = process.env.PORT
 
-app.get('/', (req, res) => {
-  res.sendStatus(200)
+app.get('/orgs/:org', (req, res) => {
+  const { org } = req.params
+
+  res.send({ org })
 })
 
-app.listen(port, (err) => {
+app.listen(port, err => {
   if (err) {
     throw err
   }

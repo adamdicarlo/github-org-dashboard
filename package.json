@@ -1,0 +1,14 @@
+{
+  "name": "github-org-dashboard",
+  "version": "0.1.0",
+  "description": "GitHub organization summary dashboard app",
+  "scripts": {
+    "start": "concurrently -c green,magenta -n client,server -k 'cd client && yarn start' 'cd server && yarn start'"
+  },
+  "author": "Adam DiCarlo <adam.dicarlo@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^4.1.1"
+  }
+}
