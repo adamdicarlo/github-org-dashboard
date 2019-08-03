@@ -50,19 +50,19 @@ const OrgStats: React.FC<Props> = ({ name }) => {
   if (basicStats) {
     const { forks, repos, stars } = basicStats
     return (
-      <div>
+      <>
         <p>Stars: {stars}</p>
         <p>Forks: {forks}</p>
         <p>Repos: {repos}</p>
-      </div>
+      </>
     )
   } else if (error) {
     const { message, status } = error
     return (
-      <div>
+      <>
         <h2>Error{status ? `: HTTP ${status}`:''}</h2>
         <p>{message}</p>
-      </div>
+      </>
     )
   } else {
     return (

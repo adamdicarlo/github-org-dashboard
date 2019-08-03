@@ -23,9 +23,9 @@ app.get('/orgs/:org/basic-stats', async (req, res) => {
   try {
     githubResponse = await octokit.repos.listForOrg({ org })
   } catch (error) {
-    return void res
-      .status(error.status || 500)
-      .send({ error: `GitHub API ${error.name || ''}` })
+    const message =
+      error.status === 404 ? 'Organization not found' : error.name || ''
+    return void res.status(error.status || 500).send({ error: message })
   }
 
   res.send(reposToBasicStats(githubResponse.data))
