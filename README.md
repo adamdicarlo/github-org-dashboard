@@ -4,19 +4,35 @@ A simple app to show a summary for a GitHub organization.
 
 ## Setup
 
-First, get a GitHub API token.
+You'll need a GitHub API token; you can [generate one here](https://github.com/settings/tokens).
 
-Then run:
+Make sure you have Node.js v12 installed. This is easiest by using the
+[`Node Versions Manager (nvm)`](https://github.com/nvm-sh/nvm) tool:
 
 ```
-  cp server/.env.template server/.env
+  # (not shown) Install nvm
 
-  # Edit the server's "dotenv" file, adding your GitHub API token.
+  # Install (and activate) Node.js v12
+  nvm install 12
+
+  # (not shown) Install yarn; instructions at https://yarnpkg.com/lang/en/docs/install 
+
+  # Create and edit the server's "dotenv" file, adding your GitHub API token.
+  cp server/.env.template server/.env
   $EDITOR server/.env
+
+  # Install dependencies
+  yarn
 
   # Start the app
   yarn start
 ```
+
+Now you can visit the app at [http://localhost:3000/](http://localhost:3000/).
+
+Both server and client are "watched," so changes will result in recompilation (for the client) and
+restarting (for the server), but you'll have to manually reload your web browser to see client
+changes.
 
 ## Limitations
 
