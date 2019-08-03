@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useRef, useState } from 'react';
 import './App.css';
+import OrgStats from './OrgStats';
 
 const App: React.FC = () => {
+  const inputEl = useRef<HTMLInputElement>(null)
+  const [orgName, setOrgName] = useState<string | null>(null)
+
+  const onClick = () => {
+    setOrgName(inputEl.current!.value)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {orgName
+          ? <OrgStats name={orgName} />
+          : <div>
+              <input
+                type='text'
+                placeholder='Organization name'
+                ref={inputEl}
+              />
+              <button onClick={onClick}>Go</button>
+            </div>
+        }
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
