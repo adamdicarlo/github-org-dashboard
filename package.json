@@ -9,6 +9,6 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "concurrently": "^4.1.1"
+    "concurrently": "^5.0.2"
   }
 }
